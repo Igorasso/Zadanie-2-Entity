@@ -1,0 +1,32 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Delete";
+    
+}
+    <h2>Edycja</h2>
+    @using (Html.BeginForm("DeleteConfirmed","Employee")){
+    
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+        <h4>Potwierdź usunięcie danych dla @Html.DisplayFor(modelItem=>Model.Id) ? </h4>
+            <p>
+                Czy na pewno chcesz usunać dane?
+            </p>
+            @Html.HiddenFor(model => model.Id)
+       
+                               
+          
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="delete" class="btn btn-danger">
+            </div>
+        </div>
+        </div>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to list","Index")
+    </div>
+
+
