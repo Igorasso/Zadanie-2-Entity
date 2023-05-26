@@ -49,6 +49,16 @@ namespace P01EFtest.Controllers
         {
 
             _dbContext.Employees.Add(employee);
+            if (employee.Email != null || employee.Email == "")
+            {
+                if (_dbContext.Employees.Where(x => x.Email == employee.Email).FirstOrDefault() != null)
+                {
+                    ModelState.AddModelError("Email", "Given email adress already exists in the database");
+                    return View(employee);
+                }
+
+            }
+
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }

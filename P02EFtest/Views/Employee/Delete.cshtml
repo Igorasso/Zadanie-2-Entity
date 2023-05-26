@@ -3,14 +3,14 @@
     ViewData["Title"] = "Delete";
     
 }
-    <h2>Edycja</h2>
+<h2>Delete</h2>
     @using (Html.BeginForm("DeleteConfirmed","Employee")){
     
         @Html.AntiForgeryToken()
         <div class="form-horizontal">
-        <h4>Potwierdź usunięcie danych dla @Html.DisplayFor(modelItem=>Model.Id) ? </h4>
+        <h4>Confirm data deletion for @Html.DisplayFor(modelItem=>Model.Id) ? </h4>
             <p>
-                Czy na pewno chcesz usunać dane?
+                Are you sure you want to delete data?
             </p>
             @Html.HiddenFor(model => model.Id)
        
